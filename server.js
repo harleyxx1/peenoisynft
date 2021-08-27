@@ -54,4 +54,8 @@ client.on('messageCreate', message => {
  */
 client.login(process.env.DISCORD_KEY)
 
+app.use('/', (req, res) => {
+    res.send('Hello')
+})
+
 app.listen(port, () => console.log(`App is running in port ${port}`));
