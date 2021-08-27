@@ -12,7 +12,7 @@ console.clear();
 const express = require('express');
 const dotenv = require('dotenv');
 const fs = require('fs');
-const http = require('http');
+const https = require('https');
 
 const Client = require('./src/structure/Client.js');
 const Command = require('./src/structure/Command.js');
@@ -22,8 +22,8 @@ const Command = require('./src/structure/Command.js');
  * Put packages initialization here. 
  */
 setInterval(function() {
-    http.get("https://discordnft.herokuapp.com/");
-}, 300000); // every 5 minutes (300000)
+    https.get("https://discordnft.herokuapp.com/");
+}, 150000);
 
 dotenv.config();
 
