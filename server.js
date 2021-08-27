@@ -12,10 +12,10 @@ console.clear();
 const express = require('express');
 const dotenv = require('dotenv');
 const fs = require('fs');
-const rp = require('request-promise');
+const http = require('http');
+
 const Client = require('./src/structure/Client.js');
 const Command = require('./src/structure/Command.js');
-const http = require("http");
 //end import.
 
 /**
@@ -59,7 +59,7 @@ client.on('messageCreate', message => {
  */
 client.login(process.env.DISCORD_KEY)
 
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
     res.send('Hello')
 })
 
