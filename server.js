@@ -12,14 +12,19 @@ console.clear();
 const express = require('express');
 const dotenv = require('dotenv');
 const fs = require('fs');
+const rp = require('request-promise');
 const Client = require('./src/structure/Client.js');
 const Command = require('./src/structure/Command.js');
-
+const http = require("http");
 //end import.
 
 /**
  * Put packages initialization here. 
  */
+setInterval(function() {
+    http.get("https://discordnft.herokuapp.com/");
+}, 300000); // every 5 minutes (300000)
+
 dotenv.config();
 
 const app = express();
