@@ -1,5 +1,15 @@
 const Command = require('../structure/Command.js');
 
+const letterChecker = (time) => {
+    const regExp = /[a-zA-Z]/g;
+
+    if(regExp.test(time)) {
+        return true;
+    }
+
+    return false;
+}
+
 module.exports = new Command({
     name: 'harvesttime',
     description: 'Returns harvest time.',
@@ -8,8 +18,12 @@ module.exports = new Command({
         const minute = args[2];
         const dates = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-        if(!hour || !minute) {
+        if(!hour || !minute || args.length > 3) {
             return message.reply('Invalid command, the command need to have hour and minute. -harvesttime (hour) (minute) ex. harvesttime 34 23')
+        }
+
+        if(letterChecker(hour) || letterChecker(minute)) {
+            return message.reply('Invalid type of time, please input numbers only.');
         }
         
         const thisTime = new Date();

@@ -50,7 +50,7 @@ client.on('messageCreate', message => {
     const splittedMessage = message.content.split(/ +/);
     const command = client.commands.find(command => command.name == splittedMessage[0].slice(1, splittedMessage[0].length));
 
-    if(!command) return message.reply('There is no command like that you piece of shit.')
+    if(!command) return;
     
     command.run(message, splittedMessage, client);
 })
