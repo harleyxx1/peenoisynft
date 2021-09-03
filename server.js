@@ -16,6 +16,7 @@ const https = require('https');
 
 const Client = require('./src/structure/Client.js');
 const Command = require('./src/structure/Command.js');
+const checkServer = require('./src/helper/checkerServer.js');
 //end import.
 
 /**
@@ -52,6 +53,10 @@ client.on('messageCreate', message => {
 
     if(!command) return;
     
+    if(command.name !== 'set') {
+        if(checkServer(message)) return;
+    } 
+
     command.run(message, splittedMessage, client);
 })
 /**
