@@ -12,7 +12,7 @@ const letterChecker = (time) => {
 
 module.exports = new Command({
     name: 'ht',
-    description: 'Returns harvest from the givin hour/s and minute/s. Example: -ht 30 30',
+    description: 'Returns harvest from the given hour/s and minute/s. Example: -ht 30 30',
     async run(message, args, client) {
         const hour = args[1];
         const minute = args[2];
