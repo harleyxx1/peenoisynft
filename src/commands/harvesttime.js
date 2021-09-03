@@ -11,8 +11,8 @@ const letterChecker = (time) => {
 }
 
 module.exports = new Command({
-    name: 'harvesttime',
-    description: 'Returns harvest time.',
+    name: 'ht',
+    description: 'Returns harvest from the givin hour/s and minute/s. Example: -ht 30 30',
     async run(message, args, client) {
         const hour = args[1];
         const minute = args[2];
@@ -35,6 +35,6 @@ module.exports = new Command({
         const minuteTobeReply = timeTobeReply.getMinutes() < 10 ? `0${timeTobeReply.getMinutes()}` : timeTobeReply.getMinutes();
         const AMPM = timeTobeReply.getHours() < 12 ? 'AM' : 'PM';
         
-        message.reply(`${dates[timeTobeReply.getDay() - 1]}, ${timeTobeReply.getDate() < 10 ? `0${timeTobeReply.getDate()}` : timeTobeReply.getDate()}/${timeTobeReply.getMonth() < 10 ? `0${timeTobeReply.getMonth() + 1}` : timeTobeReply.getMonth() + 1}/${timeTobeReply.getFullYear()} ${hourTobeReply}:${minuteTobeReply} ${AMPM}`)
-    }
+        message.reply(`${dates[timeTobeReply.getDay() === 0 ? dates.length - 1 : timeTobeReply.getDay() - 1]}, ${timeTobeReply.getDate() < 10 ? `0${timeTobeReply.getDate()}` : timeTobeReply.getDate()}/${timeTobeReply.getMonth() < 10 ? `0${timeTobeReply.getMonth() + 1}` : timeTobeReply.getMonth() + 1}/${timeTobeReply.getFullYear()} ${hourTobeReply}:${minuteTobeReply} ${AMPM}`)
+    }       
 })
