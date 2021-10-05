@@ -50,6 +50,6 @@ module.exports = new Command({
         const minuteTobeReply = timeTobeReply.getMinutes() < 10 ? `0${timeTobeReply.getMinutes()}` : timeTobeReply.getMinutes();
         const AMPM = timeTobeReply.getHours() < 12 ? 'AM' : 'PM';
         
-        message.reply(`${dates[timeTobeReply.getDay()]}, ${timeTobeReply.getDate() < 10 ? `0${timeTobeReply.getDate()}` : timeTobeReply.getDate()}/${timeTobeReply.getMonth() < 10 ? `0${timeTobeReply.getMonth() + 1}` : timeTobeReply.getMonth() + 1}/${timeTobeReply.getFullYear()} ${hourTobeReply}:${minuteTobeReply} ${AMPM}`)
+        message.reply(`${dates[timeTobeReply.getDay()]}, ${timeTobeReply.getDate() < 10 ? `0${timeTobeReply.getDate()}` : timeTobeReply.getDate()}/${timeTobeReply.getMonth() < 9 ? `0${timeTobeReply.getMonth() + 1}` : timeTobeReply.getMonth() + 1}/${timeTobeReply.getFullYear()} ${hourTobeReply}:${minuteTobeReply} ${AMPM}`)
     }       
 })
